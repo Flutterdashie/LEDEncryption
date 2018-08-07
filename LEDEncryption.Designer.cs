@@ -31,7 +31,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cboColorMult = new System.Windows.Forms.ComboBox();
             this.lblOutput = new System.Windows.Forms.Label();
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.lblLetter = new System.Windows.Forms.Label();
             this.lblColor = new System.Windows.Forms.Label();
             this.lblSolution = new System.Windows.Forms.Label();
@@ -45,6 +44,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(20, 20);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.checkButton);
+            this.textBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.textBox1_PreviewKeyDown);
             // 
             // cboColorMult
             // 
@@ -61,25 +62,16 @@
             this.cboColorMult.Name = "cboColorMult";
             this.cboColorMult.Size = new System.Drawing.Size(73, 21);
             this.cboColorMult.TabIndex = 1;
+            this.cboColorMult.SelectedValueChanged += new System.EventHandler(this.checkButton);
             // 
             // lblOutput
             // 
             this.lblOutput.AutoSize = true;
-            this.lblOutput.Location = new System.Drawing.Point(115, 85);
+            this.lblOutput.Location = new System.Drawing.Point(116, 56);
             this.lblOutput.Name = "lblOutput";
             this.lblOutput.Size = new System.Drawing.Size(13, 13);
             this.lblOutput.TabIndex = 2;
             this.lblOutput.Text = "?";
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(15, 59);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(113, 23);
-            this.btnSubmit.TabIndex = 3;
-            this.btnSubmit.Text = "Calculate";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.checkButton);
             // 
             // lblLetter
             // 
@@ -102,7 +94,7 @@
             // lblSolution
             // 
             this.lblSolution.AutoSize = true;
-            this.lblSolution.Location = new System.Drawing.Point(12, 85);
+            this.lblSolution.Location = new System.Drawing.Point(12, 56);
             this.lblSolution.Name = "lblSolution";
             this.lblSolution.Size = new System.Drawing.Size(97, 13);
             this.lblSolution.TabIndex = 6;
@@ -112,11 +104,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(141, 107);
+            this.ClientSize = new System.Drawing.Size(141, 78);
             this.Controls.Add(this.lblSolution);
             this.Controls.Add(this.lblColor);
             this.Controls.Add(this.lblLetter);
-            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblOutput);
             this.Controls.Add(this.cboColorMult);
             this.Controls.Add(this.textBox1);
@@ -134,7 +125,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cboColorMult;
         private System.Windows.Forms.Label lblOutput;
-        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label lblLetter;
         private System.Windows.Forms.Label lblColor;
         private System.Windows.Forms.Label lblSolution;

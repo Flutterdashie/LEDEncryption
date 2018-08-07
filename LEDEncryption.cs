@@ -21,11 +21,13 @@ namespace LetterTinkering
         {
             if ((textBox1.Text == string.Empty))
             {
-                textBox1.Text = "A";
+                lblOutput.Text = "?";
+                return;
             }
             if (!Char.IsLetter(textBox1.Text.ToCharArray().First()))
             {
-                textBox1.Text = "A";
+                lblOutput.Text = "?";
+                return;
             }
 
             if (cboColorMult.SelectedIndex == -1)
@@ -37,6 +39,11 @@ namespace LetterTinkering
             int multiplier = (cboColorMult.SelectedIndex + 2);
             char outputValue = (char)(((inputValue * multiplier) % 26) + 65);
             lblOutput.Text = outputValue.ToString();
+        }
+
+        private void textBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            textBox1.Text = "";
         }
     }
 }
